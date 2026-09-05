@@ -220,11 +220,11 @@ export default function DashboardPage({ params }: { params: Promise<{ id: string
                       <TableCell>
                         {result?.fit_summary ? (
                           <Dialog>
-                            <DialogTrigger asChild>
-                              <Button variant="ghost" size="sm" className="h-8 text-muted-foreground hover:text-primary -ml-2">
-                                <FileText className="w-4 h-4 mr-2" />
-                                Read Summary
-                              </Button>
+                            <DialogTrigger render={
+                              <Button variant="ghost" size="sm" className="h-8 text-muted-foreground hover:text-primary -ml-2" />
+                            }>
+                              <FileText className="w-4 h-4 mr-2" />
+                              Read Summary
                             </DialogTrigger>
                             <DialogContent className="max-w-md glass-card border-white/10">
                               <DialogHeader>
@@ -257,10 +257,10 @@ export default function DashboardPage({ params }: { params: Promise<{ id: string
                       <TableCell className="text-right">
                         {result ? (
                           <Dialog>
-                            <DialogTrigger asChild>
-                              <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/20 rounded-full px-4">
-                                View Report
-                              </Button>
+                            <DialogTrigger render={
+                              <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/20 rounded-full px-4" />
+                            }>
+                              View Report
                             </DialogTrigger>
                             <DialogContent className="max-w-xl glass-card border-white/10 p-0 overflow-hidden">
                               <div className="bg-primary/10 border-b border-white/5 p-6 flex justify-between items-start">
