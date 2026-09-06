@@ -33,6 +33,15 @@ def update_db():
                 # Default engagement_status safely
                 engagement_status = data.get("engagement_status")
                 
+                # Extract duration (assuming hunar returns duration in seconds)
+                duration_minutes = None
+                duration_sec = data.get("duration")
+                if duration_sec is not None:
+                    try:
+                        duration_minutes = float(duration_sec) / 60.0
+                    except:
+                        pass
+                
                 result_json = None
                 if "result" in data:
                     import json
@@ -45,9 +54,10 @@ def update_db():
                         lifecycle_status = ?,
                         recording_url = COALESCE(?, recording_url),
                         result_json = COALESCE(?, result_json),
-                        engagement_status = COALESCE(?, engagement_status)
+                        engagement_status = COALESCE(?, engagement_status),
+                        duration_minutes = COALESCE(?, duration_minutes)
                     WHERE id = ?
-                """, (status, lifecycle, recording_url, result_json, engagement_status, db_id))
+                """, (status, lifecycle, recording_url, result_json, engagement_status, duration_minutes, db_id))
                 
                 print(f"Updated call {hunar_call_id} to status {status}")
                 conn.commit()
