@@ -33,14 +33,8 @@ def update_db():
                 # Default engagement_status safely
                 engagement_status = data.get("engagement_status")
                 
-                # Extract duration (assuming hunar returns duration in seconds)
-                duration_minutes = None
-                duration_sec = data.get("duration")
-                if duration_sec is not None:
-                    try:
-                        duration_minutes = float(duration_sec) / 60.0
-                    except:
-                        pass
+                # Extract duration
+                duration_minutes = data.get("duration_minutes")
                 
                 result_json = None
                 if "result" in data:
