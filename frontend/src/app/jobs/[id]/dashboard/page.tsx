@@ -185,6 +185,7 @@ export default function DashboardPage({ params }: { params: Promise<{ id: string
               <p className="text-sm text-muted-foreground">Add candidates and trigger calls to see screening results here.</p>
             </div>
           ) : (
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader className="bg-black/40">
                 <TableRow className="border-white/5 hover:bg-transparent">
@@ -295,6 +296,7 @@ export default function DashboardPage({ params }: { params: Promise<{ id: string
                 })}
               </TableBody>
             </Table>
+            </div>
           )}
         </CardContent>
       </Card>

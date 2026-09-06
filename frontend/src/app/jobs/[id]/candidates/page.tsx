@@ -152,6 +152,7 @@ export default function CandidatesPage({ params }: { params: Promise<{ id: strin
                 </p>
               </div>
             ) : (
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader className="bg-black/40">
                   <TableRow className="border-white/5 hover:bg-transparent">
@@ -187,6 +188,7 @@ export default function CandidatesPage({ params }: { params: Promise<{ id: strin
                   ))}
                 </TableBody>
               </Table>
+              </div>
             )}
           </CardContent>
         </Card>

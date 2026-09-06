@@ -30,7 +30,7 @@ export default function RootLayout({
         </div>
 
         <header className="sticky top-0 z-50 glass">
-          <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="container mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
             <Link 
               href="/" 
               className="flex items-center gap-3 text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
@@ -41,7 +41,7 @@ export default function RootLayout({
               <span>Hunar <span className="font-light text-muted-foreground">AI</span></span>
             </Link>
             
-            <nav className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
+            <nav className="flex items-center gap-2 sm:gap-6 text-sm font-medium text-muted-foreground mt-4 sm:mt-0">
               <Link href="/jobs" className="flex items-center gap-2 hover:text-primary transition-colors py-2">
                 <Briefcase className="w-4 h-4" />
                 Jobs
@@ -58,7 +58,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        <main className="flex-1 w-full max-w-7xl mx-auto px-6 py-8">
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
           {children}
         </main>
 
