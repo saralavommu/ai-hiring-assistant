@@ -21,7 +21,7 @@ def list_calls(job_id: UUID, session: Session = Depends(get_session)):
     # Sync any active calls with Hunar
     updated_any = False
     for call in calls:
-        needs_sync = call.status in ('NOT_STARTED', 'IN_PROGRESS', 'RINGING', 'SCHEDULED')
+        needs_sync = call.status in ('NOT_STARTED', 'INITIATED', 'IN_PROGRESS', 'RINGING', 'SCHEDULED')
         missing_result = call.status == 'COMPLETED' and not call.result_json
         
         if (needs_sync or missing_result) and call.hunar_call_id:
