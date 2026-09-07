@@ -16,7 +16,9 @@ async def create_hunar_agent(job_title: str, key_requirements: str) -> dict:
                 "objective": f"Screen candidates for the {job_title} role and assess fit.",
                 "agent_prompt": (
                     "You are {persona_name}, a friendly and professional HR screening "
-                    "assistant calling on behalf of the hiring team. You are screening "
+                    "assistant calling on behalf of the hiring team. You must strictly "
+                    "speak ONLY in English throughout the entire conversation, even if the "
+                    "candidate speaks in another language. You are screening "
                     "the candidate for the role: {job_title}. Key requirements: "
                     "{key_requirements}. Ask about: current role, relevant experience, "
                     "current CTC/salary expectation, notice period, and availability for "

@@ -191,8 +191,11 @@ export default function DashboardPage({ params }: { params: Promise<{ id: string
                 <TableRow className="border-white/5 hover:bg-transparent">
                   <TableHead className="font-semibold text-muted-foreground w-1/6">Candidate</TableHead>
                   <TableHead className="font-semibold text-muted-foreground">Status</TableHead>
-                  <TableHead className="font-semibold text-muted-foreground">Duration</TableHead>
-                  <TableHead className="font-semibold text-muted-foreground w-1/3">AI Fit Summary</TableHead>
+                  <TableHead className="font-semibold text-muted-foreground">Exp.</TableHead>
+                  <TableHead className="font-semibold text-muted-foreground">Current CTC</TableHead>
+                  <TableHead className="font-semibold text-muted-foreground">Exp. CTC</TableHead>
+                  <TableHead className="font-semibold text-muted-foreground">Notice</TableHead>
+                  <TableHead className="font-semibold text-muted-foreground w-1/4">AI Fit Summary</TableHead>
                   <TableHead className="font-semibold text-muted-foreground text-center">Audio</TableHead>
                   <TableHead className="text-right font-semibold text-muted-foreground">Full Report</TableHead>
                 </TableRow>
@@ -211,11 +214,23 @@ export default function DashboardPage({ params }: { params: Promise<{ id: string
                         <StatusBadge status={row.call?.status ?? "NOT_STARTED"} />
                       </TableCell>
                       <TableCell className="text-muted-foreground">
-                        {row.call?.duration_minutes ? (
-                          <div className="flex items-center gap-1.5">
-                            <Clock className="w-3.5 h-3.5 opacity-50" />
-                            {row.call.duration_minutes.toFixed(1)}m
-                          </div>
+                        {result?.relevant_experience_years ? (
+                          <span className="text-sm">{result.relevant_experience_years}</span>
+                        ) : "—"}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {result?.current_ctc ? (
+                          <span className="text-sm">{result.current_ctc}</span>
+                        ) : "—"}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {result?.expected_ctc ? (
+                          <span className="text-sm">{result.expected_ctc}</span>
+                        ) : "—"}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {result?.notice_period ? (
+                          <span className="text-sm">{result.notice_period}</span>
                         ) : "—"}
                       </TableCell>
                       <TableCell>
