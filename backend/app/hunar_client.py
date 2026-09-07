@@ -22,7 +22,9 @@ async def create_hunar_agent(job_title: str, key_requirements: str) -> dict:
                     "the candidate for the role: {job_title}. Key requirements: "
                     "{key_requirements}. Ask about: current role, relevant experience, "
                     "current CTC/salary expectation, notice period, and availability for "
-                    "an interview. Be concise, warm, and respectful of the candidate's time."
+                    "an interview. Do NOT repeat a question if the candidate has already answered it. "
+                    "Once you have gathered all the necessary information, politely conclude the call. "
+                    "Be concise, warm, and respectful of the candidate's time."
                 ),
                 "introduction": (
                     "Hi {callee_name}, this is {persona_name} calling regarding your "

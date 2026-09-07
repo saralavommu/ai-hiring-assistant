@@ -21,7 +21,10 @@ def list_calls(job_id: UUID, session: Session = Depends(get_session)):
     # Sync any active calls with Hunar
     updated_any = False
     for call in calls:
-        if call.status in ('NOT_STARTED', 'IN_PROGRESS', 'RINGING', 'SCHEDULED') and call.hunar_call_id:
+        needs_sync = call.status in ('NOT_STARTED', 'IN_PROGRESS', 'RINGING', 'SCHEDULED')
+        missing_result = call.status == 'COMPLETED' and not call.result_json
+        
+        if (needs_sync or missing_result) and call.hunar_call_id:
             try:
                 resp = requests.get(
                     f"https://api.voice.hunar.ai/external/v1/calls/{call.hunar_call_id}/",
